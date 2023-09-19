@@ -1,7 +1,7 @@
 # quiz
 
 # Importante
-- Rode o comando ``npm install`` para baixar as dependências necessárias para executar o projeto.
+- Rode o comando ``npm install --force`` para baixar as dependências necessárias para executar o projeto.
 - Rode o comando ``ng s -o`` dentro do repositório do aplicativo para executar e abrir a aplicação.
 
 
