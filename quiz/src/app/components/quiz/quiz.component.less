@@ -1,0 +1,105 @@
+button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 88%;
+    margin-top: 7%;
+
+    img {
+        width: 30px;
+        height: 30px;
+        transform: translate(0, 2px);
+    }
+}
+
+p {
+    width: 100%;
+}
+
+h1 {
+    margin-left: 37%;
+    margin-bottom: 5%;
+    font-size: 50px;
+}
+
+.timer {
+    margin-left: 68%;
+}
+
+.slideInLeft {
+    -webkit-animation-name: slideInLeft;
+    animation-name: slideInLeft;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes slideInLeft {
+    0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    }
+    @keyframes slideInLeft {
+    0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+}
+
+.slideInRight {
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes slideInRight {
+    0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    }
+    @keyframes slideInRight {
+    0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    }
+
+    .custom-loader {
+        margin-top: 20%;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background:
+          radial-gradient(farthest-side,#000069 94%,#0000) top/8px 8px no-repeat,
+          conic-gradient(#0000 30%,#000069);
+        -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+        animation:s3 1s infinite linear;
+      }
+
+      @keyframes s3{
+        100%{transform: rotate(1turn)}
+      }

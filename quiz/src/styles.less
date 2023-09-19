@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family:"Play", 'Roboto', "Helvetica Neue", sans-serif; }
+
+.main-container {
+  overflow: hidden;
+    max-height: 700px;
+    max-width: 500px;
+    min-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+button {
+    padding: 5px;
+    border: none;
+    border-radius: 7px;
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #000069;
+    font-size: larger;
+    font-family: 'Play';
+}
+
+h1 {
+  color: #000069;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: transform 1.5s ease-in-out;
+}
+
+h1:hover {
+  transform: scale(1.1) !important;
+}
+
