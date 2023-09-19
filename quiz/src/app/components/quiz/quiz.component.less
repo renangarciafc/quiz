@@ -23,7 +23,9 @@ h1 {
 }
 
 .timer {
-    margin-left: 68%;
+    margin-left: 67%;
+    margin-top: 15%;
+    margin-bottom: 15%;
 }
 
 .slideInLeft {
@@ -103,3 +105,14 @@ h1 {
       @keyframes s3{
         100%{transform: rotate(1turn)}
       }
+
+/* Media query para telas menores que 500px */
+@media screen and (max-width: 500px) {
+    .timer {
+        margin-left: 55%;
+    }
+
+    button {
+        margin-left: 80%;
+    }
+  }

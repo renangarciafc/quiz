@@ -68,7 +68,7 @@ export class QuizComponent {
       case 7:
         Swal.fire(
           'Parabéns!!!',
-          'Não é uma tarefa fácil chegar até aqui com tempo no relógio, a partir de agora você terá 10s de acréscimo no relógio mas nem tudo são flores, o nível irá aumentar. Boa sorte!',
+          'Não é uma tarefa fácil chegar até aqui com tempo no relógio, a partir de agora você terá 10s de acréscimo no relógio. Mas nem tudo são flores, o nível irá aumentar, Boa sorte!',
           'info'
         );
 
