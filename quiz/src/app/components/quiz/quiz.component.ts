@@ -218,6 +218,9 @@ export class QuizComponent {
     // Caso não tenha mais perguntas a rota é alterada p/ a tela de resultados
     if(this.currentQuestionIndex + 1 === this.questions.length) {
       this.pauseTimer();
+
+      localStorage.setItem('totalQuestions', JSON.stringify(this.questions.length));
+
       this.router.navigate(['/results']);
     }
 
@@ -244,6 +247,9 @@ export class QuizComponent {
 
         if (this.remainingTime == 0) {
           this.pauseTimer();
+
+          localStorage.setItem('totalQuestions', JSON.stringify(this.questions.length));
+
           this.router.navigate(['/results']);
         }
       }

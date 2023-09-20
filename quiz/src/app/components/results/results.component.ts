@@ -27,6 +27,9 @@ export class ResultsComponent {
         map(e => e.answerList)
       );
 
+  // Total de perguntas
+  totalAnswer = localStorage.getItem('totalQuestions');
+
   // Volta para a página inicial
   goToHome() {
     this.store.dispatch(resetQuiz());

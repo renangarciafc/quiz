@@ -2,7 +2,7 @@
 
         <h1>Fim do Quiz</h1>
 
-        <p>Pontuação final: {{ score$ | async }} de 12</p>
+        <p>Pontuação final: {{ score$ | async }} de {{ totalAnswer }}</p>
 
         <ul>
             <li *ngFor="let answer of answerList$ | async; let index = index">
