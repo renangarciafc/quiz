@@ -20,6 +20,7 @@
 
 # Considerações sobre o desenvolvimento
 
-Eu dei preferência a diversificação no desenvolvimento desta aplicação, para que assim eu pudesse utilizar o máximo de funcionalidades possiveis que o Angular nos permite, por conta disso pode não haver padronização em algumas partes do código mas isto foi proposital.
-  Eu fiz a comunição entre o componente de questões com o componente principal utilizando ``@Input()``, ``@Output()`` e ``EventEmitter`` fazendo desnecessário o uso do mapeamento de estado feito pelo ``NGRX``. Ainda assim, é possível acompanhar todos os passos de ação do usuário atraves do ``Redux DevTools``, além disso, eu fiz a utilização desses dados em alguns momentos para que vocês tenham uma noção de como eu trabalho com outros métodos de desenvolvimento.
+- Eu dei preferência a diversificação no desenvolvimento desta aplicação, para que assim eu pudesse utilizar o máximo de funcionalidades possiveis que o Angular nos permite e para que vocês tenham mais critérios para me avaliar, por conta disso pode não haver padronização em algumas partes do código mas isto foi proposital.
+- Eu fiz a comunição entre o componente de questões com o componente principal utilizando ``@Input()``, ``@Output()`` e ``EventEmitter`` fazendo desnecessário o uso do mapeamento de estado feito pelo ``NGRX``. Ainda assim, é possível acompanhar todos os passos de ação do usuário atraves do ``Redux DevTools``, além disso, eu fiz a utilização desses dados em alguns momentos para que vocês tenham uma noção de como eu trabalho com outros métodos de desenvolvimento.
+- É possível notar deformidades em algumas perguntas(a API retorna string quebradas em certos momentos), eu poderia tratar as string ou então trazer em base64 e converte-las para resolver o problema, no entanto, por ser em casos expecificos não considerei importante para a avaliação ao ponto de adicionar esta lógica a mais. Caso isto seja um problema eu posso corrigir.
   
