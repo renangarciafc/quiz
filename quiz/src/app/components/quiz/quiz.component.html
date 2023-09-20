@@ -19,6 +19,7 @@
     <button
     class="slideInLeft"
     (click)="nextQuestion()"
+    [disabled]="(selectAnswer$ | async)"
     ><img src="../../../assets/imgs/arrow.svg" alt="next question"></button>
 
   </div>

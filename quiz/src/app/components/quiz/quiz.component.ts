@@ -47,7 +47,13 @@ export class QuizComponent {
   score$ = this.store.select('reducer').
   pipe(
     map(e => e.score)
-  )
+  );
+
+  // Utilizado na manipulação do disabled do botão p/ avançar
+  selectAnswer$ = this.store.select('reducer').
+  pipe(
+    map(e => e.selectAnswer)
+  );
 
   // Função chamada toda vez que uma seleção é feita
   onAnswerSelected(answer: string) {
@@ -211,6 +217,7 @@ export class QuizComponent {
 
     // Caso não tenha mais perguntas a rota é alterada p/ a tela de resultados
     if(this.currentQuestionIndex + 1 === this.questions.length) {
+      this.pauseTimer();
       this.router.navigate(['/results']);
     }
 
