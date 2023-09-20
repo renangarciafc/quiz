@@ -13,9 +13,9 @@
 - O botão responsavel por avançar para a próxima questão fica desabilitado até que uma opção seja selecionada.
 - O tempo é pausado toda vez que uma pergunta é respondida, e retomado com o avanço para a próxima questão.
 - A dificuldade das perguntas aumenta de acordo com seu progresso no jogo, assim como o valor do bônus.
-- Se seu tempo acabar é encerrado o jogo e você será redirecionado para a tela de resultados, onde poderá consultar seu progresso no jogo.
-- Ao responder todas as perguntas, você será redirecionado para a tela de resultados, onde terá acesso a sua pontuação e oa histórico de perguntas.
-- Após o termino do jogo será possivel iniciar um outro.
+- Se seu tempo acabar é encerrado o jogo e você será redirecionado para a tela de resultados, onde poderá consultar seu progresso.
+- Ao responder todas as perguntas, você será redirecionado para a tela de resultados, onde terá acesso a sua pontuação e ao histórico de perguntas.
+- Após o termino do jogo, será possivel iniciar um outro.
 
 
 # Considerações sobre o desenvolvimento
