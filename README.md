@@ -10,6 +10,7 @@
 - A cada pergunta respondida um bônus de 5 segundos é adicionado ao seu tempo.
 - Um simbolo de ``X`` aparece ao lado das respostas erradas selecionadas.
 - Um simbolo de check aparece ao lado das respostas corretas.
+- O botão responsavel por avançar para a próxima questão fica desabilitado até que uma opção seja selecionada.
 - O tempo é pausado toda vez que uma pergunta é respondida, e retomado com o avanço para a próxima questão.
 - A dificuldade das perguntas aumenta de acordo com seu progresso no jogo, assim como o valor do bônus.
 - Se seu tempo acabar é encerrado o jogo e você será redirecionado para a tela de resultados, onde poderá consultar seu progresso no jogo.
