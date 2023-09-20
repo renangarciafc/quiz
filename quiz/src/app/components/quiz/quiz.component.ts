@@ -236,6 +236,7 @@ export class QuizComponent {
         this.remainingTime--;
 
         if (this.remainingTime == 0) {
+          this.pauseTimer();
           this.router.navigate(['/results']);
         }
       }
