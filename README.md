@@ -20,6 +20,6 @@
 
 # Considerações sobre o desenvolvimento
 
-Eu dei preferência a diversificação no desenvolvimento desta aplicação, para que assim eu pudesse utilizar o máximo de funcionalidades possiveis que o Angular nos permite.
+Eu dei preferência a diversificação no desenvolvimento desta aplicação, para que assim eu pudesse utilizar o máximo de funcionalidades possiveis que o Angular nos permite, por conta disso pode não haver padronização em algumas partes do código mas isto foi proposital.
   Eu fiz a comunição entre o componente de questões com o componente principal utilizando ``@Input()``, ``@Output()`` e ``EventEmitter`` fazendo desnecessário o uso do mapeamento de estado feito pelo ``NGRX``. Ainda assim é possível acompanhar todos os passos de ação do usuário atraves do ``Redux DevTools``, além disso, eu fiz a utilização desses dados em alguns momentos para que vocês tenham uma noção de como eu trabalho com outros métodos de desenvolvimento.
   
