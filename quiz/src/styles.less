@@ -1,28 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 
-html, body { height: 100%; overflow-x: hidden; }
-body { margin: 0; font-family:"Play", 'Roboto', "Helvetica Neue", sans-serif; }
+html, body { height: 100vh; overflow-x: hidden; }
+body { margin: 0; font-family: 'Playpen Sans', cursive; }
 
 .main-container {
-  overflow: hidden;
-  max-height: 700px;
-  max-width: 500px;
-  width: 100vh;
-  margin: 0 auto;
-  padding-top: 10%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
-
-/* Media query para telas menores que 500px */
-@media screen and (max-width: 500px) {
-  .main-container {
-    max-width: 90%; /* Redimensionar a largura para 100% da largura da tela */
-  }
-}
-
 
 button {
     padding: 5px;
@@ -31,15 +23,40 @@ button {
     width: 100px;
     height: 35px;
     cursor: pointer;
-    background-color: #000069;
+    background-color: #4040c8;
     font-size: larger;
     font-family: 'Play';
 }
 
-h1 {
-  color: #000069;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+h1, title {
+  font-size: 50px;
+  text-align: center;
   transition: transform 1.5s ease-in-out;
+  color: #4040c8;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  svg {
+    font-family: "Russo One", sans-serif;
+    width: 100%; height: 10%;
+    overflow: visible;
+  }
+  svg text {
+    animation: stroke 5s 1 alternate;
+    stroke-width: 2;
+    stroke: #365FA0;
+    font-size: 90px;
+  }
+  @keyframes stroke {
+    0%   {
+      fill: rgba(72,138,204,0); stroke: rgba(54,95,160,1);
+      stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+    }
+    70%  {fill: rgba(72,138,204,0); stroke: rgba(54,95,160,1); }
+    80%  {fill: rgba(72,138,204,0); stroke: rgba(54,95,160,1); stroke-width: 3; }
+    100% {
+      fill: rgba(72,138,204,1); stroke: rgba(72,138,204,1);
+      stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+    }
+  }
 }
 
 h1:hover {

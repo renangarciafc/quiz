@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Question } from 'src/app/model/quiz-model';
 import { QuizService } from 'src/app/services/quiz.service';
 import { AddAnswered, IncrasesScore, QuizState, selectAnswer } from 'src/app/store/app.state';
 import Swal from 'sweetalert2';
+import { finalize, mergeMap, take } from 'rxjs/operators';
+import { Observable, forkJoin, of } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
@@ -113,9 +115,9 @@ export class QuizComponent {
     this.isLoading = true;
 
     // Faz a requisição
-    this.quizService.getEasyQuestions().subscribe({
-      // Tratamento da msn de sucesso
-      next: (response: any) => {
+    this.quizService.getEasyQuestions().pipe(
+      take(1),
+      mergeMap((response: any) => {
         // Desativa o loading
         this.isLoading = false;
 
@@ -130,12 +132,42 @@ export class QuizComponent {
           )
         });
 
-        // Faz a requisição de dificuldade média
-        this.getMediumQuestions();
-      },
-      // Tratamento de erro
-      error: (error) => {
-        // Avisa ao usuário e retorna para a tela principal
+        // Faz a requisição de dificuldade média e dificil
+        let meddiumQuestions = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            this.getMediumQuestions().toPromise().then((result: any) => {
+              resolve(result);
+            }).catch((error: any) => {
+              reject(error);
+            });
+          }, 5000);
+        });
+
+        let hardQuestions = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            this.getHardQuestions().toPromise().then((result: any) => {
+              resolve(result);
+            }).catch((error: any) => {
+              reject(error);
+            });
+          }, 5000);
+        });
+
+        return forkJoin([hardQuestions, meddiumQuestions]);
+      }),
+      tap((response) => {
+        // Adiciona as questões de dificuldade média e dificil na lista principal
+        response.forEach((questions: any) => {
+          questions.forEach((question: any) => {
+            this.questions.push(question);
+          });
+        });
+      }),
+      finalize(() => {
+        // Encerra o loading
+        this.isLoading = false;
+      }),
+      catchError((error) => {
         Swal.fire(
           'Algo deu errado',
           'Não foi possivel filtrar as perguntas, tente iniciar o jogo novamente!',
@@ -145,66 +177,51 @@ export class QuizComponent {
         console.error('Error on getEasyQuestions:', error);
 
         this.router.navigate(['']);
-      }
-    })
+        return of([]);
+      })
+    ).subscribe();
   }
 
   // Filtra as questões de nivel médio
-  getMediumQuestions() {
-    this.quizService.getMediumQuestions().subscribe({
-      next: (response: any) => {
-        response.results.forEach((question: any) => {
-          this.questions.push(
-            new Question(
-              question.question,
-              question.correct_answer,
-              [...question.incorrect_answers, question.correct_answer].sort(() => Math.random() - 0.5)// Adiciona a resposta correta na lista de resposta erradas e aplica um sort() para mistara-las
-            )
-          )
-        });
-
-        // Inicia o filtro de nivel dificil
-        this.getHardQuestions();
-      },
-      error: (error) => {
+  getMediumQuestions(): Observable<Question[]> {
+    return this.quizService.getMediumQuestions().pipe(
+      take(1),
+      map((response: any) => response.results.map((question: any) => new Question(
+        question.question,
+        question.correct_answer,
+        [...question.incorrect_answers, question.correct_answer].sort(() => Math.random() - 0.5)
+      ))),
+      catchError((error) => {
         Swal.fire(
           'Algo deu errado',
-          'Não foi possivel filtrar as perguntas, tente iniciar o jogo novamente!',
+          'Não foi possivel carregar as perguntas de dificuldade média',
           'warning'
         );
-
         console.error('Error on getMediumQuestions:', error);
-
-        this.router.navigate(['']);
+        return of([]);
       }
-    })
+      )
+    );
   }
 
-  getHardQuestions() {
-    this.quizService.getHardQuestions().subscribe({
-      next: (response: any) => {
-        response.results.forEach((question: any) => {
-          this.questions.push(
-            new Question(
-              question.question,
-              question.correct_answer,
-              [...question.incorrect_answers, question.correct_answer].sort(() => Math.random() - 0.5)// Adiciona a resposta correta na lista de resposta erradas e aplica um sort() para mistara-las
-            )
-          )
-        });
-      },
-      error: (error) => {
+  getHardQuestions(): Observable<Question[]> {
+    return this.quizService.getHardQuestions().pipe(
+      map((response: any) => response.results.map((question: any) => new Question(
+        question.question,
+        question.correct_answer,
+        [...question.incorrect_answers, question.correct_answer].sort(() => Math.random() - 0.5)
+      ))),
+      catchError((error) => {
         Swal.fire(
           'Algo deu errado',
-          'Não foi possivel filtrar as perguntas, tente iniciar o jogo novamente!',
+          'Não foi possivel carregar as perguntas de dificuldade dificil',
           'warning'
         );
-
         console.error('Error on getHardQuestions:', error);
-
-        this.router.navigate(['']);
+        return of([]);
       }
-    })
+      )
+    );
   }
 
   // Avança para a próxima questão

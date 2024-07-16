@@ -1,20 +1,51 @@
-img {
-    width: 15px;
-    height: 15px;
+.main {
+    display: grid;
+    place-items: center;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    width: 100%;
+    height: 100%;
 }
 
-ul {
-    list-style: none;
-    width: 100%;
+.success {
+    background-color: rgba(31, 105, 74, 0.8) !important;
+    box-shadow: -9px 6px 2px 0px rgb(192, 244, 200) !important;
+}
 
-    li {
-        margin: 10px 0;
-    }
-  }
+.error {
+    background-color: rgba(213, 38, 38, 0.8) !important;
+    box-shadow: -9px 6px 2px 0px rgb(248, 174, 174) !important;
+}
 
 .question {
-    margin-bottom: 5%;
-    font-size: 20px;
+    grid-area: 1 / 1 / 2 / 4;
+    font-size: 18px;
+}
+
+.options {
+    grid-area: 2 / 1 / 3 / 4;
+    place-items: center;
+    display: grid;
+    padding: 12px;
+	grid-template-rows: repeat(4, 1fr);
+	grid-template-columns: 1fr;
+	gap: 12px 0px;
+	width: 100%;
+	height: 100%;
+
+    button {
+        box-shadow: -9px 6px 2px 0px rgba(41, 45, 128, 1);
+        height: auto;
+        width: 80%;
+        background-color: rgb(94, 94, 219);
+        color: white;
+
+        &:hover {
+            background-color: rgb(84, 88, 166);
+            transform: scaleY(1.2);
+        }
+    }
 }
 
 .slideInUp {

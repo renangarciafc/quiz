@@ -1,14 +1,19 @@
 <div class="main-container" *ngIf="!isLoading">
 
-  <div>
-
-    <h1 class="slideInRight">Quiz</h1>
+    <h1 class="title slideInRight">
+      <svg>
+        <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+          Quiz
+        </text>
+      </svg>
+    </h1>
 
     <div class="timer slideInRight">
       Tempo restante: {{ remainingTime }} s
     </div>
 
     <app-questions
+      class="questions"
       *ngIf="questions.length"
       [question]="questions[currentQuestionIndex].question"
       [options]="questions[currentQuestionIndex].options"
@@ -23,8 +28,6 @@
     ><img src="../../../assets/imgs/arrow.svg" alt="next question"></button>
 
   </div>
-
-</div>
 
 <div class="main-container" *ngIf="isLoading">
   <div class="custom-loader"></div>

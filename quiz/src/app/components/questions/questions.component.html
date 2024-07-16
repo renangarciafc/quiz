@@ -1,28 +1,16 @@
-<div class="slideInUp">
+<div class="main slideInUp">
 
-    <p class="question">{{ question }}</p>
+    <p class="question" translate="yes">{{ question | decode }}</p>
 
-    <ul>
-      <li *ngFor="let option of options">
-        <label>
-          <input
-            type="radio"
-            [value]="option"
-            [(ngModel)]="selectedOption"
-            (change)="onSelect()"
-            [disabled]="!(selectAnswer$ | async)"
-          />
-          {{ option }}
-
-          <span *ngIf="
-          option != correctAnswer &&
-          option === selectedOption"><img src="../../../assets/imgs/error.svg" alt="wrong answer"></span>
-
-          <span *ngIf="
-          option === correctAnswer &&
-          option === selectedOption"><img src="../../../assets/imgs/success.svg" alt="right answer"></span>
-        </label>
-      </li>
-    </ul>
-
+    <div class="options">
+      <button
+      translate="yes"
+      [ngClass]="{'success': option === correctAnswer && option === selectedOption, 'error': option != correctAnswer && option === selectedOption}"
+      (click)="onSelect(option)"
+      [disabled]="!(selectAnswer$ | async)"
+      *ngFor="let option of options">
+        {{ option }}
+      </button>
+    </div>
+    
   </div>

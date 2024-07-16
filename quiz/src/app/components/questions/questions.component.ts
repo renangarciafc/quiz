@@ -37,7 +37,8 @@ export class QuestionsComponent {
   );
 
   // Emite o evento do click ao componente pai e desabilita os inputs
-  onSelect() {
+  onSelect(optionSelected: string) {
+    this.selectedOption = optionSelected;
     this.store.dispatch(selectAnswer());
     this.answerSelected.emit(this.selectedOption);
   }

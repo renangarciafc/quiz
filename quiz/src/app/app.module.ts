@@ -14,6 +14,8 @@ import { QuizComponent } from './components/quiz/quiz.component';
 import { AppReducer } from './store/app.state';
 import { ResultsComponent } from './components/results/results.component';
 import { StartComponent } from './components/start/start.component';
+import { DecodePipe } from './pipes/decode-string.pipe';
+import { TranslateEnPtPipe } from './pipes/translate.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { StartComponent } from './components/start/start.component';
     QuestionsComponent,
     QuizComponent,
     ResultsComponent,
-    StartComponent
+    StartComponent,
+    DecodePipe,
+    TranslateEnPtPipe
   ],
   imports: [
     BrowserModule,

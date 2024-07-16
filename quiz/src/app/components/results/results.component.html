@@ -1,6 +1,12 @@
 <div class="main-container">
 
-        <h1>Fim do Quiz</h1>
+    <h1 class="title">
+        <svg>
+          <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+            Resultados
+          </text>
+        </svg>
+    </h1>
 
         <p>Pontuação final: {{ score$ | async }} de {{ totalAnswer }}</p>
 
