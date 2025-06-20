@@ -1,3 +1,10 @@
+# Ignore the node_modules directory, which contains external dependencies installed via npm.
+# Ignore the .vscode directory, which stores Visual Studio Code workspace settings.
+# Ignore the .env file, which typically contains environment variables and sensitive information.
+# Ignore the .github directory, which holds GitHub-specific configuration files and workflows.
+# Ignore the .angular directory, which may contain Angular-specific build or cache files.
 .node_modules/
 .vscode/
 .env
+.github/
+.angular/
